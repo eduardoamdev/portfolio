@@ -6,7 +6,7 @@
     <title>Eduardo Alvarez — Javascript Developer</title>
     <meta
       name="description"
-      content="Personal portfolio of Eduardo Alvarez — front‑end engineer focused on accessible, high‑performance interfaces."
+      content="Personal portfolio of Eduardo Alvarez — front-end engineer focused on accessible, high-performance interfaces."
     />
     <style>
       /* ---- Theme ---- */
@@ -54,6 +54,8 @@
         grid-template-columns: 1fr;
         min-height: 100dvh;
       }
+
+      /* Desktop: sidebar + content */
       @media (min-width: 1024px) {
         .wrap {
           grid-template-columns: 360px 1fr;
@@ -83,7 +85,7 @@
         backdrop-filter: blur(4px);
       }
       .brand h1 {
-        font-size: 28px;
+        font-size: 35px;
         margin: 0 0 8px;
         letter-spacing: 0.4px;
       }
@@ -181,7 +183,7 @@
         max-width: 65ch;
       }
 
-      /* ---- Cards ---- */
+      /* ---- Card grid ---- */
       .grid {
         display: grid;
         gap: 16px;
@@ -283,7 +285,7 @@
         max-width: 70ch;
       }
 
-      /* ---- Header (mobile) ---- */
+      /* ---- Header (mobile/desktop) ---- */
       .topbar {
         position: sticky;
         top: 0;
@@ -303,10 +305,25 @@
         border-radius: 10px;
         color: var(--text);
       }
+
+      /* Desktop: show sidebar, hide topbar */
       @media (min-width: 1024px) {
         .topbar {
           display: none;
         }
+      }
+
+      /* Mobile/tablet: hide sidebar and topbar nav, keep only name */
+      @media (max-width: 1023px) {
+        .sidebar {
+          display: none;
+        }
+        .topbar nav {
+          display: none;
+        } /* hide nav buttons */
+        .wrap {
+          padding: 0 16px;
+        } /* add a bit of page padding */
       }
 
       /* ---- Utilities ---- */
@@ -342,9 +359,13 @@
     </style>
   </head>
   <body>
+    <!-- Mobile/Tablet: only your name is shown here. Desktop: this bar is hidden. -->
     <header class="topbar">
-      <strong>Eduardo Alvarez</strong>
+      <div class="brand">
+        <h1>Eduardo <span>Alvarez</span></h1>
+      </div>
       <nav>
+        <!-- Hidden on small screens by CSS, visible on desktop (but desktop hides entire topbar) -->
         <a class="menu" href="#about">About</a>
         <a class="menu" href="#experience">Experience</a>
         <a class="menu" href="#projects">Projects</a>
@@ -353,6 +374,7 @@
     </header>
 
     <div class="wrap">
+      <!-- Desktop-only sidebar (hidden on small screens) -->
       <aside class="sidebar">
         <div>
           <div class="brand">
@@ -379,7 +401,9 @@
         </p>
       </aside>
 
+      <!-- Main -->
       <main class="main">
+        <!-- About -->
         <section class="section" id="about" tabindex="-1">
           <div class="section-inner">
             <div class="eyebrow">Introduction</div>
@@ -410,6 +434,7 @@
           </div>
         </section>
 
+        <!-- Experience -->
         <section class="section" id="experience" tabindex="-1">
           <div class="section-inner">
             <div class="eyebrow">Career</div>
@@ -433,7 +458,7 @@
                   </li>
                   <li>
                     Collaboration with an international team and
-                    cross‑functional stakeholders.
+                    cross-functional stakeholders.
                   </li>
                 </ul>
                 <div class="skills">
@@ -448,9 +473,9 @@
                 <div class="pill">Madrid, Spain</div>
               </div>
               <div>
-                <h3 class="role">Backend Developer · Gloval (Full‑time)</h3>
+                <h3 class="role">Backend Developer · Gloval (Full-time)</h3>
                 <ul class="muted">
-                  <li>Server‑side web development with Node.js and Express.</li>
+                  <li>Server-side web development with Node.js and Express.</li>
                   <li>Database interactions with PostgreSQL and MongoDB.</li>
                   <li>Testing implementation with Jest.</li>
                   <li>Container management with Docker.</li>
@@ -470,7 +495,7 @@
                 <div class="pill">Jan 2022 — Jun 2023</div>
               </div>
               <div>
-                <h3 class="role">Backend Developer · 3fera (Full‑time)</h3>
+                <h3 class="role">Backend Developer · 3fera (Full-time)</h3>
                 <ul class="muted">
                   <li>Backend development with NestJS and GraphQL.</li>
                   <li>Mongo database management.</li>
@@ -494,10 +519,10 @@
                 <div class="pill">May 2021 — Dec 2021</div>
               </div>
               <div>
-                <h3 class="role">Lead Mentor · Campsite Academy (Full‑time)</h3>
+                <h3 class="role">Lead Mentor · Campsite Academy (Full-time)</h3>
                 <ul class="muted">
                   <li>
-                    Organized MERN‑stack projects and coached student teams.
+                    Organized MERN-stack projects and coached student teams.
                   </li>
                   <li>Applied Agile methodologies in curriculum & delivery.</li>
                   <li>
@@ -520,7 +545,7 @@
               <div>
                 <h3 class="role">
                   Team Leader, Electronics Maintenance · Spanish Army
-                  (Full‑time)
+                  (Full-time)
                 </h3>
                 <ul class="muted">
                   <li>
@@ -543,6 +568,7 @@
           </div>
         </section>
 
+        <!-- Projects -->
         <section class="section" id="projects" tabindex="-1">
           <div class="section-inner pb-40">
             <div class="eyebrow pb-20">Projects</div>
@@ -551,8 +577,8 @@
               <article class="card">
                 <h3>Cukies.world marketplace</h3>
                 <p>
-                  This project was and marketplace for digital collectibles on
-                  the the Tron and Binance Smart Chain.
+                  This project was a marketplace for digital collectibles on
+                  Tron and Binance Smart Chain.
                 </p>
               </article>
               <article class="card">
@@ -583,15 +609,13 @@
               </article>
               <article class="card">
                 <h3>WebInspiredBy</h3>
-                <p>
-                  In this application the user can generate a basic web site
-                  based on an existing one.
-                </p>
+                <p>Generate a basic site inspired by an existing one.</p>
               </article>
             </div>
           </div>
         </section>
 
+        <!-- Contact -->
         <section class="section" id="contact" tabindex="-1">
           <div class="section-inner mb-300">
             <div class="eyebrow">Say hello</div>
@@ -612,29 +636,29 @@
       // Year
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      // Scroll spy for sidebar nav
+      // Scroll spy only matters when the sidebar exists (desktop)
       const sections = Array.from(document.querySelectorAll("section"));
       const links = Array.from(document.querySelectorAll("#nav a"));
-
       const byId = (id) =>
         links.find((a) => a.getAttribute("href") === "#" + id);
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const link = byId(entry.target.id);
-            if (!link) return;
-            if (entry.isIntersecting) {
-              links.forEach((l) => l.classList.remove("active"));
-              link.classList.add("active");
-              history.replaceState(null, "", "#" + entry.target.id);
-            }
-          });
-        },
-        { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
-      );
-
-      sections.forEach((s) => observer.observe(s));
+      if (links.length) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const link = byId(entry.target.id);
+              if (!link) return;
+              if (entry.isIntersecting) {
+                links.forEach((l) => l.classList.remove("active"));
+                link.classList.add("active");
+                history.replaceState(null, "", "#" + entry.target.id);
+              }
+            });
+          },
+          { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
+        );
+        sections.forEach((s) => observer.observe(s));
+      }
     </script>
   </body>
 </html>
