@@ -1,3 +1,3 @@
 # Portfolio
 
-Personal portfolio developed with HTML, css and Javascript.
+Personal portfolio developed with HTML, CSS and Javascript.
